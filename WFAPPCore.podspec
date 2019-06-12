@@ -5,10 +5,11 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
     iOS Podspec for WFAPPCore for sharing between iOS and Server
     DESC
+  s.homepage = "https://github.com/d4r1091/WFAPPCore.git"
   s.license = "MIT"
   s.author = "Dario Carlomagno"
   s.platform = :ios, "10.0"
-  s.source = { :git => "git@github.com:d4r1091/WFAPPCore.git",
+  s.source = { :git => "https://github.com/d4r1091/WFAPPCore.git",
 		           :tag => "#{s.version}" }
   s.source_files = "Sources/WFAPPCore/**/*.swift"
   s.swift_version = '5.0'
