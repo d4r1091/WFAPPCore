@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AuthenticationResponse: Codable {
+public struct AuthenticationResponse: Codable {
     
     let accessToken: String?
     let tokenType: String?

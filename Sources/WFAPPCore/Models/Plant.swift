@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Plant: Decodable {
+public struct Plant: Decodable {
     
     let identifier: String?
     let name: String?

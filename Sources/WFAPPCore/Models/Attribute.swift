@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Attribute: Decodable {
+public struct Attribute: Decodable {
     
     let identifier: String
     let name: String?
@@ -20,7 +20,7 @@ struct Attribute: Decodable {
         case value
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         
         do {
             

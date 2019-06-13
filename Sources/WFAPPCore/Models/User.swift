@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User : Codable {
+public struct User : Codable {
     
     let name: String?
     let birthday: Date?
