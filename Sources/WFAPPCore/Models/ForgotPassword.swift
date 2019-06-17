@@ -10,5 +10,10 @@ import Foundation
 
 public struct ForgotPassword: Codable {
     
-    let email: String
+    public let email: String
+    
+    public init(email: String) {
+        
+        self.email = email
+    }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 public struct AuthenticationResponse: Codable {
     
-    let accessToken: String?
-    let tokenType: String?
-    let expiresIn: Int?
-    let refreshToken: String?
+    public let accessToken: String?
+    public let tokenType: String?
+    public let expiresIn: Int?
+    public let refreshToken: String?
     
     enum CodingKeys: String, CodingKey {
         
@@ -22,5 +22,4 @@ public struct AuthenticationResponse: Codable {
         case expiresIn = "expires_in"
         case refreshToken = "refresh_token"
     }
-    
 }

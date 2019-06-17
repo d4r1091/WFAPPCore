@@ -10,10 +10,10 @@ import Foundation
 
 public struct Authentication: Codable {
     
-    let username: String?
-    let password: String?
-    let grantType: String?
-    let authToken: String? = nil
+    public let username: String?
+    public let password: String?
+    public let grantType: String?
+    public var authToken: String? = nil
     
     enum GrantType: String {
         case password
@@ -26,5 +26,16 @@ public struct Authentication: Codable {
         case password
         case authToken = "token"
         case grantType = "grant_type"
+    }
+    
+    public init(username: String?,
+                password: String?,
+                grantType: String?,
+                authToken: String? = nil) {
+        
+        self.username = username
+        self.password = password
+        self.grantType = grantType
+        self.authToken = authToken
     }
 }

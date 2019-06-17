@@ -10,8 +10,19 @@ import Foundation
 
 public struct User : Codable {
     
-    let name: String?
-    let birthday: Date?
-    let location: String?
-    let gender: String?
+    public let name: String?
+    public let birthday: Date?
+    public let location: String?
+    public let gender: String?
+    
+    public init(name: String?,
+                birthday: Date?,
+                location: String?,
+                gender: String?) {
+        
+        self.name = name
+        self.birthday = birthday
+        self.location = location
+        self.gender = gender
+    }
 }

@@ -10,9 +10,9 @@ import Foundation
 
 public struct Attribute: Decodable {
     
-    let identifier: String
-    let name: String?
-    let value: Any?
+    public let identifier: String
+    public let name: String?
+    public let value: Any?
     
     enum CodingKeys: String, CodingKey {
         case identifier

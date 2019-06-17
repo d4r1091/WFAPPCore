@@ -10,7 +10,16 @@ import Foundation
 
 public struct Plant: Decodable {
     
-    let identifier: String?
-    let name: String?
-    let attributes: [Attribute]?
+    public let identifier: String
+    public let name: String?
+    public let attributes: [Attribute]?
+    
+    public init(identifier: String,
+                name: String,
+                attributes: [Attribute]?) {
+        
+        self.identifier = identifier
+        self.name = name
+        self.attributes = attributes
+    }
 }
