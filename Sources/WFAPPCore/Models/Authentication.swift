@@ -15,7 +15,7 @@ public struct Authentication: Codable {
     public let grantType: String?
     public var authToken: String? = nil
     
-    enum GrantType: String {
+    public enum GrantType: String {
         case password
         case token
     }
