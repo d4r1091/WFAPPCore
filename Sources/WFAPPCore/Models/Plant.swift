@@ -15,7 +15,7 @@ public struct Plant: Decodable {
     public let attributes: [Attribute]?
     
     public init(identifier: String,
-                name: String,
+                name: String?,
                 attributes: [Attribute]?) {
         
         self.identifier = identifier
