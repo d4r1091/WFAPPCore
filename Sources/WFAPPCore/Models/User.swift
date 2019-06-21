@@ -12,15 +12,15 @@ public struct User : Codable {
     
     public var id: UUID?
     public var name: String?
-    public var email: String?
-    public private(set) var password: String?
+    public var email: String
+    public private(set) var password: String
     public var birthday: Date?
     public var location: String?
     public var gender: String?
     
     public init(id: UUID?,
-                email: String?,
-                password: String?,
+                email: String,
+                password: String,
                 name: String?,
                 birthday: Date?,
                 location: String?,
