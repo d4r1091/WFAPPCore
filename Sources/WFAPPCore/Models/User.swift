@@ -12,17 +12,23 @@ public struct User : Codable {
     
     public var id: UUID?
     public var name: String?
+    public var email: String?
+    public private(set) var password: String?
     public var birthday: Date?
     public var location: String?
     public var gender: String?
     
     public init(id: UUID?,
+                email: String?,
+                password: String?,
                 name: String?,
                 birthday: Date?,
                 location: String?,
                 gender: String?) {
         
         self.id = id
+        self.email = email
+        self.password = password
         self.name = name
         self.birthday = birthday
         self.location = location
