@@ -10,13 +10,13 @@ import Foundation
 
 public struct User : Codable {
     
-    public let id: UUID
-    public let name: String?
-    public let birthday: Date?
-    public let location: String?
-    public let gender: String?
+    public var id: UUID?
+    public var name: String?
+    public var birthday: Date?
+    public var location: String?
+    public var gender: String?
     
-    public init(id: UUID,
+    public init(id: UUID?,
                 name: String?,
                 birthday: Date?,
                 location: String?,

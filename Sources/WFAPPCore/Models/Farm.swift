@@ -10,10 +10,10 @@ import Foundation
 
 public struct Farm: Decodable {
     
-    public let id: UUID
-    public let name: String?
-    public let imageURL: URL?
-    public let plants: [String]?
+    public var id: UUID?
+    public var name: String?
+    public var imageURL: URL?
+    public var plants: [String]?
     
     enum CodingKeys: String, CodingKey {
         
@@ -23,7 +23,7 @@ public struct Farm: Decodable {
         case plants
     }
     
-    public init(id: UUID,
+    public init(id: UUID?,
                 name: String?,
                 imageURL: URL?,
                 plants:[String]?) {

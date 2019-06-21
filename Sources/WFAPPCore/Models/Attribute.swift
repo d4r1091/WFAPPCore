@@ -10,7 +10,7 @@ import Foundation
 
 public struct Attribute: Decodable {
     
-    public let id: UUID?
+    public var id: UUID?
     public let name: String?
     public let value: Any?
     
