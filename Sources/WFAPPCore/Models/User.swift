@@ -10,16 +10,19 @@ import Foundation
 
 public struct User : Codable {
     
+    public let id: UUID
     public let name: String?
     public let birthday: Date?
     public let location: String?
     public let gender: String?
     
-    public init(name: String?,
+    public init(id: UUID,
+                name: String?,
                 birthday: Date?,
                 location: String?,
                 gender: String?) {
         
+        self.id = id
         self.name = name
         self.birthday = birthday
         self.location = location

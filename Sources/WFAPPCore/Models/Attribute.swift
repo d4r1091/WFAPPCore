@@ -10,7 +10,7 @@ import Foundation
 
 public struct Attribute: Decodable {
     
-    public let identifier: String
+    public let id: UUID?
     public let name: String?
     public let value: Any?
     
@@ -26,7 +26,7 @@ public struct Attribute: Decodable {
             
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
-            identifier = try container.decode(String.self, forKey: .identifier)
+            id = try container.decode(UUID.self, forKey: .identifier)
             name = try? container.decodeIfPresent(String.self, forKey: .name)
             
             if let stringProperty = try? container.decode(String.self, forKey: .value) {
