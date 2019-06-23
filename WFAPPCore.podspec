@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "WFAPPCore"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
   s.summary = "WFAPP Core for code shared across platforms"
   s.description  = <<-DESC
     iOS Podspec for WFAPPCore for sharing between iOS and Server
