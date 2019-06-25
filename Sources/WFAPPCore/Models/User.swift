@@ -17,6 +17,7 @@ public struct User : Codable {
     public var birthday: Date?
     public var location: String?
     public var gender: String?
+    public var profileImage: Image?
     
     public init(id: UUID?,
                 email: String?,
@@ -24,7 +25,8 @@ public struct User : Codable {
                 name: String?,
                 birthday: Date?,
                 location: String?,
-                gender: String?) {
+                gender: String?,
+                profileImage: Image?) {
         
         self.id = id
         self.email = email
@@ -33,5 +35,6 @@ public struct User : Codable {
         self.birthday = birthday
         self.location = location
         self.gender = gender
+        self.profileImage = profileImage
     }
 }
