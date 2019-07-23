@@ -17,7 +17,7 @@ public struct User : Codable {
     public var birthday: Date?
     public var location: String?
     public var gender: String?
-    public var profileImage: Image?
+    public var profileImageURL: URL?
     
     public init(id: UUID?,
                 email: String?,
@@ -26,7 +26,7 @@ public struct User : Codable {
                 birthday: Date?,
                 location: String?,
                 gender: String?,
-                profileImage: Image?) {
+                profileImageURL: URL?) {
         
         self.id = id
         self.email = email
@@ -35,6 +35,22 @@ public struct User : Codable {
         self.birthday = birthday
         self.location = location
         self.gender = gender
-        self.profileImage = profileImage
+        self.profileImageURL = profileImageURL
     }
+}
+
+extension User {
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case id
+        case name
+        case email
+        case password
+        case birthday
+        case location
+        case gender
+        case profileImageURL = "image_url"
+    }
+    
 }
