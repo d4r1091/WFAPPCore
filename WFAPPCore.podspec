@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage = "https://github.com/d4r1091/WFAPPCore.git"
   s.license = "MIT"
   s.author = "Dario Carlomagno"
-  s.platform = :ios, "11.0"
+  s.platform = :ios, "12.0"
   s.source = { :git => "https://github.com/d4r1091/WFAPPCore.git",
 		           :tag => "#{s.version}" }
   s.source_files = "Sources/WFAPPCore/**/*.swift"
