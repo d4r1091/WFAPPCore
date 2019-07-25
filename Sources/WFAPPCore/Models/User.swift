@@ -19,14 +19,14 @@ public struct User : Codable {
     public var gender: String?
     public var profileImageURL: URL?
     
-    public init(id: UUID?,
-                email: String?,
-                password: String?,
-                name: String?,
-                birthday: Date?,
-                location: String?,
-                gender: String?,
-                profileImageURL: URL?) {
+    public init(id: UUID? = nil,
+                email: String? = nil,
+                password: String? = nil,
+                name: String? = nil,
+                birthday: Date? = nil,
+                location: String? = nil,
+                gender: String? = nil,
+                profileImageURL: URL? = nil) {
         
         self.id = id
         self.email = email

@@ -14,9 +14,9 @@ public struct Plant: Decodable {
     public var name: String?
     public var attributes: [Attribute]?
     
-    public init(id: UUID?,
-                name: String?,
-                attributes: [Attribute]?) {
+    public init(id: UUID? = nil,
+                name: String? = nil,
+                attributes: [Attribute]? = nil) {
         
         self.id = id
         self.name = name

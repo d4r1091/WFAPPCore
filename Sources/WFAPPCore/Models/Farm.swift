@@ -23,10 +23,10 @@ public struct Farm: Decodable {
         case plants
     }
     
-    public init(id: UUID?,
-                name: String?,
-                imageURL: URL?,
-                plants:[String]?) {
+    public init(id: UUID? = nil,
+                name: String? = nil,
+                imageURL: URL? = nil,
+                plants:[String]? = nil) {
         
         self.id = id
         self.name = name
