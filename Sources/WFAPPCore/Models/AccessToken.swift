@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AccessToken: Codable {
+public struct AccessToken: Codable, Tokenable {
     
     public typealias Token = String
     
@@ -25,23 +25,10 @@ public struct AccessToken: Codable {
     
     //MARK: Initializers
     
-    init(userID: UUID) throws {
+    public init(userID: UUID) throws {
 
         self.tokenString = AccessToken.encodedToken
         self.userID = userID
         self.expiryTime = Date().addingTimeInterval(AccessToken.accessTokenExpirationInterval)
     }
-}
-
-private extension AccessToken {
-    
-    private static var encodedToken: String {
-        
-        typealias Byte = UInt8
-        typealias Bytes = [Byte]
-        let random = Bytes(repeating: 0, count: AccessToken.length)
-
-        return Data(random).base64EncodedString()
-    }
-    
 }
