@@ -13,8 +13,8 @@ public struct AccessToken: Codable {
     
     //MARK: Constants
     
-    static let accessTokenExpirationInterval: TimeInterval = 3600
-    static let length = 32
+    public static let accessTokenExpirationInterval: TimeInterval = 3600
+    public static let length = 32
     
     //MARK: Properties
     
