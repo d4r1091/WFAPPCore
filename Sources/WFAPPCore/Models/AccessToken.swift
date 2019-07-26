@@ -22,4 +22,26 @@ public struct AccessToken: Codable {
     public private(set) var tokenString: Token
     public private(set) var userID: UUID
     public let expiryTime: Date
+    
+    //MARK: Initializers
+    
+    init(userID: UUID) throws {
+
+        self.tokenString = AccessToken.encodedToken
+        self.userID = userID
+        self.expiryTime = Date().addingTimeInterval(AccessToken.accessTokenExpirationInterval)
+    }
+}
+
+private extension AccessToken {
+    
+    private static var encodedToken: String {
+        
+        typealias Byte = UInt8
+        typealias Bytes = [Byte]
+        let random = Bytes(repeating: 0, count: AccessToken.length)
+
+        return Data(random).base64EncodedString()
+    }
+    
 }
