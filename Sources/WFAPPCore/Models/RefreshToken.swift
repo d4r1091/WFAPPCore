@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RefreshToken: Codable {
+public struct RefreshToken: Codable {
     
     public typealias Token = String
     
