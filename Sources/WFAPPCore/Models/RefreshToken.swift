@@ -9,11 +9,11 @@ import Foundation
 
 struct RefreshToken: Codable {
     
-    typealias Token = String
+    public typealias Token = String
     
     //MARK: Properties
     
-    var id: UUID?
-    let tokenString: Token
-    let userID: UUID
+    public var id: UUID?
+    public let tokenString: Token
+    public let userID: UUID
 }

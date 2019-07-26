@@ -9,7 +9,7 @@ import Foundation
 
 public struct AccessToken: Codable {
     
-    typealias Token = String
+    public typealias Token = String
     
     //MARK: Constants
     
@@ -19,7 +19,7 @@ public struct AccessToken: Codable {
     //MARK: Properties
     
     public var id: UUID?
-    private(set) var tokenString: Token
-    private(set) var userID: UUID
-    let expiryTime: Date
+    public private(set) var tokenString: Token
+    public private(set) var userID: UUID
+    public let expiryTime: Date
 }
