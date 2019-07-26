@@ -32,3 +32,39 @@ public struct AccessToken: Codable, Tokenable {
         self.expiryTime = Date().addingTimeInterval(AccessToken.accessTokenExpirationInterval)
     }
 }
+
+public struct AuthenticationResponse: Codable {
+    
+    //MARK: Properties
+    
+    public let accessToken: AccessToken.Token
+    public let expiresIn: TimeInterval
+    public let refreshToken: RefreshToken.Token
+    
+    //MARK: Initializers
+    
+    public init(accessToken: AccessToken, refreshToken: RefreshToken) {
+        self.accessToken = accessToken.tokenString
+        self.expiresIn = AccessToken.accessTokenExpirationInterval //Not honored, just an estimate
+        self.refreshToken = refreshToken.tokenString
+    }
+    
+    //MARK: Codable
+    
+    private enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case refreshToken = "refresh_token"
+    }
+}
+
+public struct RefreshTokenResponse: Codable {
+    
+    //MARK: Properties
+    
+    public let refreshToken: RefreshToken.Token
+    
+    private enum CodingKeys: String, CodingKey {
+        case refreshToken = "refresh_token"
+    }
+}
