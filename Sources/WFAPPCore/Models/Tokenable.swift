@@ -2,7 +2,7 @@
 //  Tokenable.swift
 //  WFAPPCore
 //
-//  Created by Dario Carlomagno on 26/07/2019.
+//  Created by Dario Carlomagno on 27/07/2019.
 //
 
 import Foundation
@@ -14,12 +14,14 @@ protocol Tokenable {
 
 extension Tokenable {
     
-    static var encodedToken: String {
+    static var encodedToken: String? {
         
-        typealias Byte = UInt8
-        typealias Bytes = [Byte]
-        let random = Bytes(repeating: 0, count: AccessToken.length)
+        guard let data = NSMutableData(length: AccessToken.length) else {
+            return nil
+        }
         
-        return Data(random).base64EncodedString()
+        let _ = SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes)
+        
+        return data.base64EncodedString(options: [])
     }
 }
