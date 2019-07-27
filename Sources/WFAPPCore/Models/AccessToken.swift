@@ -19,7 +19,7 @@ public struct AccessToken: Codable, Tokenable {
     //MARK: Properties
     
     public var id: UUID?
-    public private(set) var tokenString: Token?
+    public private(set) var tokenString: Token
     public private(set) var userID: UUID
     public let expiryTime: Date
     

@@ -9,15 +9,15 @@ import Foundation
 
 protocol Tokenable {
     
-    static var encodedToken: String? { get }
+    static var encodedToken: String { get }
 }
 
 extension Tokenable {
     
-    static var encodedToken: String? {
+    static var encodedToken: String {
         
         guard let data = NSMutableData(length: AccessToken.length) else {
-            return nil
+            return ""
         }
         
         let _ = SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes)

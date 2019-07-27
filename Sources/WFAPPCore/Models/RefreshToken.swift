@@ -14,7 +14,7 @@ public struct RefreshToken: Codable, Tokenable {
     //MARK: Properties
     
     public var id: UUID?
-    public let tokenString: Token?
+    public let tokenString: Token
     public let userID: UUID
     
     //MARK: Initializers
