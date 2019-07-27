@@ -9,7 +9,7 @@ import Foundation
 
 protocol Tokenable {
     
-    static var encodedToken: String { get }
+    static var encodedToken: String? { get }
 }
 
 extension Tokenable {

@@ -19,7 +19,7 @@ public struct AccessToken: Codable, Tokenable {
     //MARK: Properties
     
     public var id: UUID?
-    public private(set) var tokenString: Token
+    public private(set) var tokenString: Token?
     public private(set) var userID: UUID
     public let expiryTime: Date
     
@@ -37,9 +37,9 @@ public struct AuthenticationResponse: Codable {
     
     //MARK: Properties
     
-    public let accessToken: AccessToken.Token
+    public let accessToken: AccessToken.Token?
     public let expiresIn: TimeInterval
-    public let refreshToken: RefreshToken.Token
+    public let refreshToken: RefreshToken.Token?
     
     //MARK: Initializers
     
