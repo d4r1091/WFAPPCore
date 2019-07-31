@@ -86,7 +86,7 @@ extension User: Encodable {
         
         var container = encoder.container(keyedBy: CodingKeys.self)
         
-        try? container.encodeIfPresent(name, forKey: .id)
+        try? container.encodeIfPresent(id, forKey: .id)
         try? container.encodeIfPresent(name, forKey: .name)
         try? container.encodeIfPresent(email, forKey: .email)
         try? container.encodeIfPresent(password, forKey: .password)
