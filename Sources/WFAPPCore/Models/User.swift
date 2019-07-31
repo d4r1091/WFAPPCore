@@ -60,6 +60,7 @@ extension User: Decodable {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        id = try? container.decodeIfPresent(UUID.self, forKey: .id)
         name = try? container.decodeIfPresent(String.self, forKey: .name)
         email = try? container.decodeIfPresent(String.self, forKey: .email)
         password = try? container.decodeIfPresent(String.self, forKey: .password)
@@ -85,6 +86,7 @@ extension User: Encodable {
         
         var container = encoder.container(keyedBy: CodingKeys.self)
         
+        try? container.encodeIfPresent(name, forKey: .id)
         try? container.encodeIfPresent(name, forKey: .name)
         try? container.encodeIfPresent(email, forKey: .email)
         try? container.encodeIfPresent(password, forKey: .password)
