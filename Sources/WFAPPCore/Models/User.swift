@@ -65,15 +65,13 @@ extension User: Decodable {
         password = try? container.decodeIfPresent(String.self, forKey: .password)
         
         do {
-            let dateString = try container.decode(String.self, forKey: .birthday)
-            birthday = dateString.iso8601
+            let dateString = try container.decodeIfPresent(String.self, forKey: .birthday)
+            birthday = dateString?.iso8601
         } catch {
             throw DecodingError.dataCorruptedError(forKey: .birthday,
                                                    in: container,
                                                    debugDescription: "Date string does not match format expected by formatter.")
         }
-        
-        birthday = try? container.decodeIfPresent(Date.self, forKey: .birthday)
         
         location = try? container.decodeIfPresent(String.self, forKey: .location)
         gender = try? container.decodeIfPresent(String.self, forKey: .gender)
