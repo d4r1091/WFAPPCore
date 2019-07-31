@@ -10,12 +10,12 @@ import Foundation
 
 public struct Attribute: Decodable {
     
-    public var id: UUID?
+    public var id: String?
     public let name: String?
     public let value: Any?
     
     enum CodingKeys: String, CodingKey {
-        case identifier
+        case id
         case name
         case value
     }
@@ -26,7 +26,7 @@ public struct Attribute: Decodable {
             
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
-            id = try container.decode(UUID.self, forKey: .identifier)
+            id = try container.decodeIfPresent(String.self, forKey: .id)
             name = try? container.decodeIfPresent(String.self, forKey: .name)
             
             if let stringProperty = try? container.decode(String.self, forKey: .value) {

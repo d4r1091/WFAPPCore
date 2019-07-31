@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct User : Codable {
+public struct User {
     
     public var id: UUID?
     public var name: String?
@@ -52,5 +52,48 @@ extension User {
         case gender
         case profileImageURL = "image_url"
     }
+}
+
+extension User: Decodable {
     
+    public init(from decoder: Decoder) throws {
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try? container.decodeIfPresent(String.self, forKey: .name)
+        email = try? container.decodeIfPresent(String.self, forKey: .email)
+        password = try? container.decodeIfPresent(String.self, forKey: .password)
+        
+        do {
+            let dateString = try container.decode(String.self, forKey: .birthday)
+            birthday = dateString.iso8601
+        } catch {
+            throw DecodingError.dataCorruptedError(forKey: .birthday,
+                                                   in: container,
+                                                   debugDescription: "Date string does not match format expected by formatter.")
+        }
+        
+        birthday = try? container.decodeIfPresent(Date.self, forKey: .birthday)
+        
+        location = try? container.decodeIfPresent(String.self, forKey: .location)
+        gender = try? container.decodeIfPresent(String.self, forKey: .gender)
+        profileImageURL = try? container.decodeIfPresent(URL.self, forKey: .profileImageURL)
+    }
+}
+
+extension User: Encodable {
+    
+    public func encode(to encoder: Encoder) throws {
+        
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try? container.encodeIfPresent(name, forKey: .name)
+        try? container.encodeIfPresent(email, forKey: .email)
+        try? container.encodeIfPresent(password, forKey: .password)
+        try? container.encodeIfPresent(birthday?.iso8601, forKey: .birthday)
+        try? container.encodeIfPresent(location, forKey: .location)
+        try? container.encodeIfPresent(gender, forKey: .gender)
+        try? container.encodeIfPresent(profileImageURL, forKey: .profileImageURL)
+
+    }
 }

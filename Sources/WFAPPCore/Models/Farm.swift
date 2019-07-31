@@ -10,7 +10,7 @@ import Foundation
 
 public struct Farm: Decodable {
     
-    public var id: UUID?
+    public var id: String?
     public var name: String?
     public var imageURL: URL?
     public var plants: [String]?
@@ -19,11 +19,11 @@ public struct Farm: Decodable {
         
         case id
         case name
-        case imageURL = "image"
+        case imageURL = "image_url"
         case plants
     }
     
-    public init(id: UUID? = nil,
+    public init(id: String? = nil,
                 name: String? = nil,
                 imageURL: URL? = nil,
                 plants:[String]? = nil) {

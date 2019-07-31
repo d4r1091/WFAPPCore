@@ -10,11 +10,11 @@ import Foundation
 
 public struct Plant: Decodable {
     
-    public var id: UUID?
+    public var id: String?
     public var name: String?
     public var attributes: [Attribute]?
     
-    public init(id: UUID? = nil,
+    public init(id: String? = nil,
                 name: String? = nil,
                 attributes: [Attribute]? = nil) {
         
