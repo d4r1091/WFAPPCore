@@ -66,8 +66,8 @@ extension User: Decodable {
         password = try? container.decodeIfPresent(String.self, forKey: .password)
         
         do {
-            let dateString = try container.decodeIfPresent(String.self, forKey: .birthday)
-            birthday = dateString?.iso8601
+            let date = try container.decodeIfPresent(Date.self, forKey: .birthday)
+            birthday = date
         } catch {
             throw DecodingError.dataCorruptedError(forKey: .birthday,
                                                    in: container,
@@ -90,7 +90,7 @@ extension User: Encodable {
         try? container.encodeIfPresent(name, forKey: .name)
         try? container.encodeIfPresent(email, forKey: .email)
         try? container.encodeIfPresent(password, forKey: .password)
-        try? container.encodeIfPresent(birthday?.iso8601, forKey: .birthday)
+        try? container.encodeIfPresent(birthday, forKey: .birthday)
         try? container.encodeIfPresent(location, forKey: .location)
         try? container.encodeIfPresent(gender, forKey: .gender)
         try? container.encodeIfPresent(profileImageURL, forKey: .profileImageURL)
