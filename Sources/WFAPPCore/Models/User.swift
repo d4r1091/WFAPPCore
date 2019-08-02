@@ -90,15 +90,7 @@ extension User: Encodable {
         try? container.encodeIfPresent(name, forKey: .name)
         try? container.encodeIfPresent(email, forKey: .email)
         try? container.encodeIfPresent(password, forKey: .password)
-        
-        if let birthday = birthday {
-            let dateBirthday = Calendar.current.date(bySettingHour: 0,
-                                                     minute: 0,
-                                                     second: 0,
-                                                     of: birthday)
-            try? container.encodeIfPresent(dateBirthday, forKey: .birthday)
-        }
-        
+        try? container.encodeIfPresent(birthday?.iso8601FullDate, forKey: .birthday)
         try? container.encodeIfPresent(location, forKey: .location)
         try? container.encodeIfPresent(gender, forKey: .gender)
         try? container.encodeIfPresent(profileImageURL, forKey: .profileImageURL)
