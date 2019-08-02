@@ -11,7 +11,7 @@ public class DCDateFormatter {
     
     // MARK: - Properties
     
-    public static var locale: Locale? = Locale.current
+    public static var currentLocale: Locale? = Locale.current
 
     // MARK: - Shared
     
@@ -35,7 +35,7 @@ public class DCDateFormatter {
             }
             
             let dateFormatter = DateFormatter()
-            dateFormatter.locale = DCDateFormatter.locale
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
             dateFormatter.dateFormat = format.rawValue
             
             cachedDateFormatters[key] = dateFormatter
