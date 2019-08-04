@@ -11,7 +11,7 @@ import Foundation
 public struct Authentication: Codable {
     
     public let email: String
-    public var password: String
+    public let password: String
     
     public init(email: String,
                 password: String) {
