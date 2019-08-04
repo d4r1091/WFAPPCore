@@ -15,11 +15,11 @@ public class DCDateFormatter {
 
     // MARK: - Shared
     
-    static let shared = DCDateFormatter()
+    public static let shared = DCDateFormatter()
     
     // MARK: - Queue
     
-    let cachedDateFormattersQueue = DispatchQueue(label: "DCDateFormatter.queue")
+    private let cachedDateFormattersQueue = DispatchQueue(label: "DCDateFormatter.queue")
     
     // MARK: - Cached Formatters
     
@@ -45,18 +45,18 @@ public class DCDateFormatter {
     }
     
     /// Creates a Date using 'TimeInterval'
-    func date(from timeInterval: TimeInterval) -> Date? {
+    public func date(from timeInterval: TimeInterval) -> Date? {
         return Date(timeIntervalSince1970: timeInterval)
     }
     
     /// Creates a Date using 'dateString' and 'Date.Format'.
-    func date(from dateString: String, format: Date.Format) -> Date? {
+    public func date(from dateString: String, format: Date.Format) -> Date? {
         let dateFormatter = cachedDateFormatter(withFormat: format)
         return dateFormatter.date(from: dateString)
     }
     
     /// Creates a String using 'Date'.
-    func string(from date: Date, format: Date.Format) -> String {
+    public func string(from date: Date, format: Date.Format) -> String {
         let dateFormatter = cachedDateFormatter(withFormat: format)
         return dateFormatter.string(from: date)
     }
