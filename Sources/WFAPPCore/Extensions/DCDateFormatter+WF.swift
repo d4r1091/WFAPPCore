@@ -12,12 +12,10 @@ extension DCDateFormatter {
     // MARK: - DOB
     
     public func dateOfBirthAsString(from date: Date) -> String {
-        let formattedDate = string(from: date, format: .date)
-        return formattedDate
+        return string(from: date, format: .readableDateWithSpace)
     }
     
     public func dateOfBirth(from string: String) -> Date? {
-        let formattedDate = date(from: string, format: .date)
-        return formattedDate
+        return date(from: string, format: .readableDateWithSpace)
     }
 }
