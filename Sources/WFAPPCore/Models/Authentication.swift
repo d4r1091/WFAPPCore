@@ -10,19 +10,13 @@ import Foundation
 
 public struct Authentication: Codable {
     
-    public let username: String?
-    public var password: String? = nil
+    public let email: String
+    public var password: String
     
-    enum CodingKeys: String, CodingKey {
-
-        case username
-        case password
-    }
-    
-    public init(username: String?,
-                password: String? = nil) {
+    public init(email: String,
+                password: String) {
         
-        self.username = username
+        self.email = email
         self.password = password
     }
 }
