@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(Security)
-import Security
-#endif
 
 protocol Tokenable {
     
@@ -19,12 +16,12 @@ extension Tokenable {
     
     static var encodedToken: String {
         
-        guard let data = NSMutableData(length: AccessToken.length) else {
+        do {
+            let byteArray = try URandom().bytes(count: AccessToken.length)
+            let data = Data(bytes: byteArray, count: AccessToken.length)
+            return data.base64EncodedString(options: [])
+        } catch {
             return ""
         }
-        
-        let _ = SecRandomCopyBytes(kSecRandomDefault, data.length, data.mutableBytes)
-        
-        return data.base64EncodedString(options: [])
     }
 }
