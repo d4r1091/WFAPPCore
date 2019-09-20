@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Plant: Decodable {
+public struct Plant: Codable {
     
     //MARK: Properties
 
