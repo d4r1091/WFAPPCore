@@ -12,7 +12,7 @@ public struct Plant: Codable {
     
     //MARK: Properties
 
-    public var id: String?
+    public var id: UUID?
     public var name: String?
     public var scientificName: String?
     public var cultivationDays: Int?
@@ -20,7 +20,7 @@ public struct Plant: Codable {
     
     //MARK: Initializers
 
-    public init(id: String? = nil,
+    public init(id: UUID? = nil,
                 name: String? = nil,
                 scientificName: String? = nil,
                 cultivationDays: Int? = nil,
