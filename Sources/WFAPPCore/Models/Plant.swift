@@ -14,20 +14,23 @@ public struct Plant: Decodable {
 
     public var id: String?
     public var name: String?
+    public var scientificName: String?
+    public var cultivationDays: Int?
     public var imageURL: URL?
-    public var attributes: [Attribute]?
     
     //MARK: Initializers
 
     public init(id: String? = nil,
                 name: String? = nil,
-                imageURL: URL? = nil,
-                attributes: [Attribute]? = nil) {
+                scientificName: String? = nil,
+                cultivationDays: Int? = nil,
+                imageURL: URL? = nil) {
         
         self.id = id
         self.name = name
+        self.scientificName = scientificName
+        self.cultivationDays = cultivationDays
         self.imageURL = imageURL
-        self.attributes = attributes
     }
     
     //MARK: Codable
@@ -36,7 +39,8 @@ public struct Plant: Decodable {
         
         case id
         case name
+        case scientificName = "scientific_name"
+        case cultivationDays = "cultivation_days"
         case imageURL = "image_url"
-        case attributes
     }
 }
